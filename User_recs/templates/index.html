@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Watchlist Comparison</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Movie Watchlist Comparison</h1>
+    
+    <form action="/compare" method="POST">
+        <label for="usernames">Enter usernames (comma separated):</label>
+        <input type="text" name="usernames" id="usernames" required>
+        <button type="submit">Compare</button>
+    </form>
+
+    {% if common_movies %}
+        <h2>Common Movies for {{ usernames|join(", ") }}:</h2>
+        <ul>
+            {% for movie in common_movies %}
+                <li>{{ movie }}</li>
+            {% endfor %}
+        </ul>
+    {% elif usernames %}
+        <p>No common movies found for {{ usernames|join(", ") }}.</p>
+    {% endif %}
+</body>
+</html>
