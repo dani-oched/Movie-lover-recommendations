@@ -87,4 +87,17 @@ input:focus + label {
     color: #a6cef1;
     transform: translateY(-28px);
 }
+
+.button {
+    font-size: 13px;
+    background-color: #DEF;
+    border-color: #a6cef1;
+    border-radius: 20px;
+    color: #14181C;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
   
