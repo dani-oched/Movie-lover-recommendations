@@ -24,3 +24,15 @@ ul {
 li {
     padding: 5px 0;
 }
+
+.film-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.film-gallery img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}

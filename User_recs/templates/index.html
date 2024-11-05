@@ -14,13 +14,19 @@
         <button type="submit">Compare</button>
     </form>
 
+    <h3>I am very sorry it takes about 2min to run rip</h3>
+
     {% if common_movies %}
-        <h2>Common Movies for {{ usernames|join(", ") }}:</h2>
-        <ul>
+        <h2>Common Movies for {{ usernames|join(" and ") }}:</h2>
+        <div class="film-gallery">
             {% for movie in common_movies %}
-                <li>{{ movie }}</li>
+                <div>
+                    <a href="{{ movie.link }}">
+                        <img src="{{ movie.image_url }}" alt="{{ movie.name }}">
+                    </a>
+                </div>
             {% endfor %}
-        </ul>
+            </div>
     {% elif usernames %}
         <p>No common movies found for {{ usernames|join(", ") }}.</p>
     {% endif %}

@@ -59,4 +59,19 @@ def getAllCommonFilms(*users):
     common_films = set(film_lists[0])
     for film_list in film_lists:
         common_films &= set(film_list)
-    return common_films
+    return list(common_films)
+
+def getPoster(film: str):
+    lb_url = f'https://letterboxd.com/film/{film}/'
+    lb_soup = getSoup(lb_url)
+    film_id = lb_soup.find(class_='film')['data-tmdb-id']
+    tmdb_url = f'https://www.themoviedb.org/movie/{film_id}'
+    tmdb_soup = getSoup(tmdb_url)
+    img_src = tmdb_soup.find(class_='poster w-full')['src']
+    return img_src
+
+def getAllPosters(films: list()):
+    img_srcs = []
+    for film in films:
+        img_srcs.append(getPoster(film))
+    return img_srcs
