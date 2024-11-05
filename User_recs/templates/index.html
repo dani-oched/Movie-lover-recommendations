@@ -9,10 +9,20 @@
     <h1>Movie Watchlist Comparison</h1>
     
     <form action="/compare" method="POST">
-        <label for="usernames">Enter usernames (comma separated):</label>
-        <input type="text" name="usernames" id="usernames" required>
+        <!-- <label for="usernames">Enter usernames (comma separated):</label>
+        <input type="text" name="usernames" id="usernames" required> -->
+        <div class="input-wrapper">
+            <input type="text" name="user1" id="user1" required>
+            <label for="user1">username 1</label>
+        </div>
+            
+        <div class="input-wrapper">
+            <input type="text" name="user2" id="user2" required>
+            <label for="user2">username 2</label>
+        </div>
         <button type="submit">Compare</button>
     </form>
+
 
     <h3>I am very sorry it takes about 2min to run rip</h3>
 

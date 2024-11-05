@@ -2,10 +2,16 @@ body {
     font-family: Arial, sans-serif;
     max-width: 600px;
     margin: 0 auto;
+    background: #14181C;
+    background: linear-gradient(to top, #445566, #14181C);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #DEF;
 }
 
-h1, h2 {
-    color: #333;
+h1, h2 , h3{
+    text-align: center;
+    color: #DEF;
 }
 
 form {
@@ -36,3 +42,49 @@ li {
     height: auto;
     border-radius: 8px;
 }
+
+.input-wrapper {
+    position: relative;
+    line-height: 14px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+label {
+    color: #bbb;
+    font-size: 11px;
+    text-transform: uppercase;
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    top: 14px;
+    padding: 0 2px;
+    pointer-events: none;
+    background: none;
+    transition: transform 100ms ease;
+    transform: translateY(-28px);
+}
+
+input {
+    font-size: 13px;
+    color: #555;
+    outline: none;
+    border: 1px solid #bbb;
+    padding: 10px 20px;
+    border-radius: 20px;
+    position: relative;
+}
+
+input:invalid + label {
+    transform: translateY(0);
+}
+
+input:focus {
+    border-color: #a6cef1;
+}
+
+input:focus + label {
+    color: #a6cef1;
+    transform: translateY(-28px);
+}
+  
