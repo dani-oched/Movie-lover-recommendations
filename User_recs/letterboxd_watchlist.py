@@ -9,6 +9,11 @@ def getSoup(url):
     soup = BeautifulSoup(html_content, 'html.parser')
     return soup
 
+def getIntfromStr(text) -> int:
+    indxs = [i for i in range(len(text)) if text[i].isdigit()]
+    res = int(''.join([text[i] for i in indxs]))
+    return res
+
 class lbWatchlist():
     def __init__(self, user):
         self.user = user
@@ -17,11 +22,7 @@ class lbWatchlist():
 
     def getFilmCount(self, soup) -> int:
         film_count = soup.find(class_='js-watchlist-count').text
-        res, i = '', 0
-        while film_count[i].isdigit():
-            res += film_count[i]
-            i += 1
-        return int(res)
+        return getIntfromStr(film_count)
 
     def getFilmTitles(self, soup) -> list():
         poster_containers = soup.find_all('li', class_='poster-container')
